@@ -1,0 +1,91 @@
+object DataModule1: TDataModule1
+  OldCreateOrder = False
+  Left = 565
+  Top = 115
+  Height = 443
+  Width = 247
+  object ADOConnection1: TADOConnection
+    Connected = True
+    ConnectionString = 
+      'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=bd.mdb;Persist Secu' +
+      'rity Info=False'
+    LoginPrompt = False
+    Mode = cmShareDenyNone
+    Provider = 'Microsoft.Jet.OLEDB.4.0'
+    Left = 24
+    Top = 16
+  end
+  object ADOQWork: TADOQuery
+    Connection = ADOConnection1
+    Parameters = <>
+    Left = 104
+    Top = 16
+  end
+  object DataSWork: TDataSource
+    DataSet = ADOQWork
+    Left = 168
+    Top = 16
+  end
+  object ADOQTovari: TADOQuery
+    Active = True
+    Connection = ADOConnection1
+    CursorType = ctStatic
+    Parameters = <>
+    SQL.Strings = (
+      
+        'SELECT Tovari.'#1050#1086#1076'_'#1090#1086#1074#1072#1088#1072', Tovari.'#1053#1072#1080#1084#1077#1085#1086#1074#1072#1085#1080#1077' AS Tovari_'#1053#1072#1080#1084#1077#1085#1086#1074 +
+        #1072#1085#1080#1077', Brend.'#1053#1072#1080#1084#1077#1085#1086#1074#1072#1085#1080#1077' AS Brend_'#1053#1072#1080#1084#1077#1085#1086#1074#1072#1085#1080#1077', Tovari.'#1045#1076'_'#1080#1079#1084', T' +
+        'ovari.'#1062#1077#1085#1072'_'#1079#1072'_'#1096#1090'_'#1075#1088#1085' '
+      
+        '  FROM Brend INNER JOIN Tovari ON Brend.['#1050#1086#1076'_'#1073#1088#1077#1085#1076#1072'] = Tovari.['#1050 +
+        #1086#1076'_'#1073#1088#1077#1085#1076#1072'] ORDER BY Tovari.'#1050#1086#1076'_'#1090#1086#1074#1072#1088#1072)
+    Left = 104
+    Top = 72
+  end
+  object DataSTovari: TDataSource
+    DataSet = ADOQTovari
+    Left = 168
+    Top = 72
+  end
+  object ADOTPers: TADOTable
+    Active = True
+    Connection = ADOConnection1
+    CursorType = ctStatic
+    TableName = 'Personal'
+    Left = 104
+    Top = 192
+  end
+  object DataSPers: TDataSource
+    DataSet = ADOTPers
+    Left = 168
+    Top = 192
+  end
+  object ADOTBrend: TADOTable
+    Active = True
+    Connection = ADOConnection1
+    CursorType = ctStatic
+    TableName = 'Brend'
+    Left = 104
+    Top = 136
+  end
+  object DataSTBrend: TDataSource
+    DataSet = ADOTBrend
+    Left = 168
+    Top = 136
+  end
+  object ADOQCheck: TADOQuery
+    Connection = ADOConnection1
+    CursorType = ctStatic
+    Parameters = <>
+    SQL.Strings = (
+      'SELECT Check.['#1050#1086#1076'_'#1095#1077#1082#1072'], Check.['#1044#1072#1090#1072'], Check.['#1054#1073#1097#1072#1103'_'#1089#1091#1084#1084#1072']'
+      'FROM [Check];')
+    Left = 104
+    Top = 256
+  end
+  object DataSCheck: TDataSource
+    DataSet = ADOQCheck
+    Left = 168
+    Top = 256
+  end
+end

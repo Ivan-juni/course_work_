@@ -1,0 +1,34 @@
+unit Unit2;
+
+interface
+
+uses
+  SysUtils, Classes, ADODB, DB;
+
+type
+  TDataModule1 = class(TDataModule)
+    ADOConnection1: TADOConnection;
+    ADOQWork: TADOQuery;
+    DataSWork: TDataSource;
+    ADOQTovari: TADOQuery;
+    DataSTovari: TDataSource;
+    ADOTPers: TADOTable;
+    DataSPers: TDataSource;
+    ADOTBrend: TADOTable;
+    DataSTBrend: TDataSource;
+    ADOQCheck: TADOQuery;
+    DataSCheck: TDataSource;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  DataModule1: TDataModule1;
+
+implementation
+
+{$R *.dfm}
+
+end.
